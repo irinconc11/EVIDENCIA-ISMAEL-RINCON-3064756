@@ -1,0 +1,67 @@
+entero numEstudiantes, contador, opcion
+real calificacion, suma, promedio, porEncima
+arreglo [100] de real klificaciones
+inicio
+promedio <- 0
+porEncima <-0 
+repita
+escriba "GESTION DE CALIFICACIONES"
+//menú
+llamar nueva_linea
+llamar nueva_linea
+escriba "1. Ingresar calificaciones"
+llamar nueva_linea
+escriba "2. Calcular promedio"
+llamar nueva_linea
+escriba "3. Calificaciones por encima del promedio"
+llamar nueva_linea
+escriba "4. Salir"
+llamar nueva_linea
+lea opcion
+llamar nueva_linea
+	caso opcion
+		1: escriba "Ingrese el numero de estudiantes: "
+			lea numEstudiantes 
+			suma <- 0 
+			para contador <- 1 hasta numEstudiantes haga
+				escriba "Ingresa la calificacion del estudiante ", contador, ": "
+				lea calificacion 
+				llamar nueva_linea
+				klificaciones [contador]<- calificacion
+				/*mientras (calificacion > 0) o (calificacion < 100) haga
+					suma <- suma + calificacion
+				fin mientras*/
+			fin para
+			llamar nueva_linea
+		2: 	si numEstudiantes > 0 entonces
+				para contador <-1 hasta numEstudiantes haga
+					promedio <- promedio + klificaciones[contador] 
+				fin para	
+				promedio <- promedio / numEstudiantes
+				escriba "El promedio de las calificaciones es: ", promedio	
+			sino
+				escriba "no se han ingresado calificaciones."		
+			fin si
+			llamar nueva_linea
+		3: si numEstudiantes > 0 entonces
+				porEncima <- 0
+				para contador <-1 hasta numEstudiantes haga
+					si (calificacion > promedio) entonces
+						porEncima <- porEncima + 1
+						llamar nueva_linea
+						escriba "La calificacion por encima del promedio es: ", porEncima
+						llamar nueva_linea
+					sino
+						escriba "No hay calificaciones por encima del promedio"
+						llamar nueva_linea
+					fin si
+					llamar nueva_linea
+				fin para
+			sino
+				escriba "No se han ingresado califiaciones."		
+			fin si
+		4: escriba "Saliendo del programa..."
+	fin caso
+hasta (opcion =4)	
+fin
+
